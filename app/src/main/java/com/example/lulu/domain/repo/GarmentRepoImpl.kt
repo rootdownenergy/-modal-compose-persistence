@@ -1,22 +1,26 @@
 package com.example.lulu.domain.repo
 
+import android.util.Log
+import com.example.lulu.data.data_sources.local.GarmentDao
 import com.example.lulu.domain.model.Garment
 import kotlinx.coroutines.flow.Flow
 
-class GarmentRepoImpl : GarmentsRepo {
+class GarmentRepoImpl(
+    private val dao: GarmentDao
+) : GarmentsRepo {
     override fun getGarments(): Flow<List<Garment>> {
-        TODO("Not yet implemented")
+        return dao.getGarment()
     }
 
     override suspend fun getGarmentById(id: Int): Garment? {
-        TODO("Not yet implemented")
+          return dao.getGarmentById(id)
     }
 
     override suspend fun insertGarment(data: Garment) {
-        TODO("Not yet implemented")
+        dao.insertGarment(data)
     }
 
     override suspend fun deleteGarment(data: Garment) {
-        TODO("Not yet implemented")
+        dao.deleteGarment(data.garnmentId)
     }
 }

@@ -15,8 +15,8 @@ interface GarmentDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertGarment(data: Garment)
 
-    @Delete
-    suspend fun deleteGarment(garment: Garment)
+    @Query("DELETE FROM garment_main WHERE garnmentId = :id")
+    suspend fun deleteGarment(id: Int)
 
     @Update
     suspend fun updateGarment(garment: Garment)

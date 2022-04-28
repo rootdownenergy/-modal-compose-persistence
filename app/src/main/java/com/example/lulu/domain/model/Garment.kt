@@ -8,14 +8,14 @@ import com.example.lulu.presentation.util.theme.Blue700
 
 @Entity(tableName = "garment_main")
 data class Garment(
+    @PrimaryKey(autoGenerate = true)
+    var garnmentId: Int = 0,
     val name: String,
     val description: String,
     val timestamp: Long,
     val color: Int,
     val ii: String,
 ){
-    @PrimaryKey(autoGenerate = true)
-    var garnmentId: Int = 0
     companion object {
         val garmentColor = listOf(Blue200, Blue500, Blue700)
     }

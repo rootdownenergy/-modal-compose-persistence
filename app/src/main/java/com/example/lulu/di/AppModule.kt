@@ -18,7 +18,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNotesGarmentRepo(db: AppDatabase): GarmentsRepo{
-        return GarmentRepoImpl()
+        return GarmentRepoImpl(db.getGarmentDao())
     }
 
 
