@@ -79,6 +79,7 @@ class AddEditGarmentViewModel @Inject constructor(
                             )
                         )
                         _eventFlow.emit(UiEvent.SaveGarment)
+                        clearinputs()
                     }catch (e: InvalidGarmentException){
                         _eventFlow.emit(
                             UiEvent.ShowSnackbar(
@@ -90,6 +91,17 @@ class AddEditGarmentViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun clearinputs(){
+        _garmentName.value = garmentName.value.copy(
+            text = "",
+            hint = "Enter garment name..."
+        )
+        _garmentDescription.value = garmentDescription.value.copy(
+            text = "",
+            hint = "Enter garment description..."
+        )
     }
 
     sealed class UiEvent {

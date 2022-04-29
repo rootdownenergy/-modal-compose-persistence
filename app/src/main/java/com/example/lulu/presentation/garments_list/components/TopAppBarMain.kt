@@ -38,7 +38,7 @@ fun TopAppBarMain(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(
-                modifier = Modifier.border(3.dp, secondaryLight).background(primaryDark).padding(10.dp),
+                modifier = Modifier.border(3.dp, secondaryLight).background(primaryDark).padding(10.dp).align(Alignment.Top),
                 onClick = {
                     viewModel.onEvent(GarmentsEvents.ToggleOrderSection)
                 },
@@ -51,7 +51,7 @@ fun TopAppBarMain(
                 )
             }
             IconButton(
-                modifier = Modifier.border(3.dp, secondaryLight).background(primaryDark).padding(10.dp),
+                modifier = Modifier.border(3.dp, secondaryLight).background(primaryDark).padding(10.dp).align(Alignment.Bottom),
                 onClick = {
                     scope.launch {
                         state.show()

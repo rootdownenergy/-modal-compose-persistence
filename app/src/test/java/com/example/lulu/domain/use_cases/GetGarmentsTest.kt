@@ -30,8 +30,7 @@ class GetGarmentsTest {
                     name = "HTW",
                     description = "HTWHTWHTWHTW",
                     timestamp = 1651183010757+count,
-                    color = 2,
-                    ii = "cloud group"
+                    color = 2
                 )
             )
             count++
