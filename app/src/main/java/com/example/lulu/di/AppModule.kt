@@ -17,14 +17,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNotesGarmentRepo(db: AppDatabase): GarmentsRepo{
+    fun provideGarmentRepo(db: AppDatabase): GarmentsRepo {
         return GarmentRepoImpl(db.getGarmentDao())
     }
 
 
     @Provides
     @Singleton
-    fun provideNoteUseCases(repo: GarmentsRepo): GarmentsUseCases {
+    fun provideGarmentUseCases(repo: GarmentsRepo): GarmentsUseCases {
         return GarmentsUseCases(
             getGarments = GetGarments(repo),
             deleteGarment = DeleteGarment(repo),

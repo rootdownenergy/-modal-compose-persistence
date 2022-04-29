@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.lulu.presentation.util.theme.primaryDark
 import com.example.lulu.presentation.util.theme.secondaryDark
 import com.example.lulu.presentation.util.theme.secondaryLight
 import com.example.lulu.presentation.util.theme.secondaryText
@@ -36,7 +37,7 @@ fun DefaultFilterButton(
                     .width(75.dp)
                 Text(
                     text = text,
-                    color = Color.White,
+                    color = Color.Cyan,
                     fontSize = 20.sp
                 )
             }

@@ -65,7 +65,7 @@ fun GarmentsListScreen(
                     OrderSection(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 16.dp)
+                            .padding(vertical = 8.dp)
                             .testTag(TestTags.ORDER_SECTION),
                         garmentOrder = stateViewModel.garmentOrder,
                         onOrderChange = {
@@ -83,7 +83,6 @@ fun GarmentsListScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    addEditViewModel.currentGarment = garment
                                     scope.launch {
                                         state.show()
                                     }

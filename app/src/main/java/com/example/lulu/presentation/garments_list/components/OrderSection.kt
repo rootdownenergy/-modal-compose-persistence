@@ -33,11 +33,25 @@ fun OrderSection(
                 selected = garmentOrder is GarmentOrder.Date,
                 onSelected = { onOrderChange(GarmentOrder.Date(garmentOrder.orderType))}
             )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth()
+        ){
+            DefaultRadioButton(
+                text = "Ascending",
+                selected = garmentOrder.orderType is OrderType.Ascending,
+                onSelected = {
+                    onOrderChange(garmentOrder.copy(OrderType.Ascending))
+                }
+            )
             Spacer(modifier = Modifier.width(8.dp))
-            DefaultFilterButton(
-                text = "Color",
-                selected = garmentOrder is GarmentOrder.Color,
-                onSelected = { onOrderChange(GarmentOrder.Color(garmentOrder.orderType))}
+            DefaultRadioButton(
+                text = "Descending",
+                selected = garmentOrder.orderType is OrderType.Descending,
+                onSelected = {
+                    onOrderChange(garmentOrder.copy(OrderType.Descending))
+                }
             )
         }
     }

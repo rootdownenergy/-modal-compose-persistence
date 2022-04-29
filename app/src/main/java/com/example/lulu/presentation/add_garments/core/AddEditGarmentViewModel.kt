@@ -21,8 +21,6 @@ class AddEditGarmentViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    var currentGarment: Garment? = null
-
     private val _garmentName = mutableStateOf(AddEditGarmentState(
         hint = "Enter garment name..."
     ))
@@ -89,21 +87,6 @@ class AddEditGarmentViewModel @Inject constructor(
                         )
                     }
 
-                }
-            }
-            is AddEditGarmentEvents.UpdateGarment -> {
-                viewModelScope.launch {
-                    try {
-                        garmentsUseCases.updateGarment(
-                            currentGarment!!
-                        )
-                    } catch (e: InvalidGarmentException){
-                        _eventFlow.emit(
-                            UiEvent.ShowSnackbar(
-                                message = e.message ?: "Unknown Error"
-                            )
-                        )
-                    }
                 }
             }
         }
