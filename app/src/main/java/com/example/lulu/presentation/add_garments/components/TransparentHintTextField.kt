@@ -18,8 +18,10 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.sp
 import com.example.lulu.R
 import com.example.lulu.presentation.util.theme.Blue200
+import com.example.lulu.presentation.util.theme.primaryText
 
 
 @Composable
@@ -49,7 +51,12 @@ fun TransparentHintTextField(
                 }
         )
         if(isHintVisible){
-            Text(text = hint, style = textStyle, color = Color.Blue)
+            Text(
+                text = hint,
+                style = textStyle,
+                color = primaryText,
+                fontSize = 20.sp
+            )
         }
     }
 }

@@ -1,9 +1,12 @@
 package com.example.lulu.presentation.garments_list.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import com.example.lulu.R
@@ -21,7 +24,7 @@ fun ModalBottomSheetLayoutScreen() {
 
     ModalBottomSheetLayout(
         sheetContent = {
-            AddEditGarmentScreen(garmentColor = primaryDark.toArgb(), state = modalBottomSheetState)
+            AddEditGarmentScreen(garmentColor = secondaryDark.toArgb(), state = modalBottomSheetState)
         },
         sheetState = modalBottomSheetState,
         sheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
@@ -29,7 +32,6 @@ fun ModalBottomSheetLayoutScreen() {
     ) {
         Scaffold(
             topBar = { TopAppBarMain(scope = scope, state = modalBottomSheetState) },
-            backgroundColor = secondary
         ) {
             GarmentsListScreen(state = modalBottomSheetState)
         }

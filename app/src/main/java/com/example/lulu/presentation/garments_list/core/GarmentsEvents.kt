@@ -7,5 +7,5 @@ sealed class GarmentsEvents {
     data class Order(val garmentOrder: GarmentOrder): GarmentsEvents()
     data class DeleteGarment(val garment: Garment): GarmentsEvents()
     object RestoreGarment: GarmentsEvents()
-    object ToggleModalSection: GarmentsEvents()
+    object ToggleOrderSection: GarmentsEvents()
 }

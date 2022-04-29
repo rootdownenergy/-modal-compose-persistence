@@ -10,7 +10,7 @@ import com.example.lulu.R
 
 
 val fontModal = FontFamily(
-    Font(R.font.arr)
+    Font(R.font.indieflower)
 )
 val fontGarmentItem = FontFamily(
     Font(R.font.michromareg)
@@ -20,25 +20,26 @@ val Typography = Typography(
     body1 = TextStyle(
         fontFamily = fontModal,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        color = secondaryText,
+        fontSize = 20.sp,
+        color = primaryText,
     ),
     h1 = TextStyle(
         fontFamily = fontModal,
         fontWeight = FontWeight.Bold,
-        color = secondaryText,
-        fontSize = 20.sp
+        color = primaryText,
+        fontSize = 24.sp
     ),
     body2 = TextStyle(
-        color = secondaryText,
+        color = primaryText,
         fontFamily = fontGarmentItem,
         fontWeight = FontWeight.Medium,
-        fontSize = 14.sp
+        fontSize = 18.sp
     ),
     h2 = TextStyle(
         fontFamily = fontGarmentItem,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 14.sp
+        fontWeight = FontWeight.Medium,
+        fontSize = 20.sp,
+        color = primaryText
     )
     /* Other default text styles to override
     button = TextStyle(

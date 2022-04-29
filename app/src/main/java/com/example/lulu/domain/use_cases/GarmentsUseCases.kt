@@ -5,4 +5,5 @@ data class GarmentsUseCases(
     val deleteGarment: DeleteGarment,
     val addGarment: AddGarment,
     val getGarmentById: GetGarmentById,
+    val updateGarment: UpdateGarment,
 )

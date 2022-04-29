@@ -23,4 +23,8 @@ class GarmentRepoImpl(
     override suspend fun deleteGarment(data: Garment) {
         dao.deleteGarment(data.garnmentId)
     }
+
+    override suspend fun updateGarment(data: Garment) {
+        dao.updateGarment(data)
+    }
 }

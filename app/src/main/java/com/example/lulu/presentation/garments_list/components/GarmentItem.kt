@@ -73,8 +73,8 @@ fun GarmentItem(
                         ) {
                             Text(
                                 text = garment.name,
-                                style = MaterialTheme.typography.h2,
-                                color = primaryText,
+                                style = MaterialTheme.typography.h1,
+                                color = Color.Cyan,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis
                             )
@@ -82,7 +82,7 @@ fun GarmentItem(
                             Text(
                                 text = garment.description,
                                 style = MaterialTheme.typography.body1,
-                                color = primaryText,
+                                color = Color.Cyan,
                                 maxLines = 10,
                                 overflow = TextOverflow.Ellipsis
                             )
@@ -93,7 +93,7 @@ fun GarmentItem(
                             Icon(
                                 imageVector = Icons.Default.Delete,
                                 contentDescription = "Delete Garment",
-                                tint = MaterialTheme.colors.onSurface
+                                tint = Color.Cyan
                             )
                         }
                     }

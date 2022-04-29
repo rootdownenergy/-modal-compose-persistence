@@ -29,7 +29,8 @@ object AppModule {
             getGarments = GetGarments(repo),
             deleteGarment = DeleteGarment(repo),
             addGarment = AddGarment(repo),
-            getGarmentById = GetGarmentById(repo)
+            getGarmentById = GetGarmentById(repo),
+            updateGarment = UpdateGarment(repo)
         )
     }
 }

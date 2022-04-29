@@ -7,5 +7,5 @@ import com.example.lulu.domain.util.OrderType
 data class GarmentsState(
     val garments: List<Garment> = emptyList(),
     val garmentOrder: GarmentOrder = GarmentOrder.Date(OrderType.Descending),
-    val isModalSectionVisible: Boolean = false
+    val isOrderSectionVisible: Boolean = false
 )

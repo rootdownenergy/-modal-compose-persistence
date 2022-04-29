@@ -55,9 +55,9 @@ class GarmentsListViewModel @Inject constructor(
                     recentlyDeletedGarment = null
                 }
             }
-            is GarmentsEvents.ToggleModalSection -> {
+            is GarmentsEvents.ToggleOrderSection -> {
                 _state.value = state.value.copy(
-                    isModalSectionVisible = !state.value.isModalSectionVisible
+                    isOrderSectionVisible = !state.value.isOrderSectionVisible
                 )
             }
         }

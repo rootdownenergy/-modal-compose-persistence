@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -31,6 +32,8 @@ import com.example.lulu.domain.model.Garment
 import com.example.lulu.presentation.add_garments.core.AddEditGarmentEvents
 import com.example.lulu.presentation.util.theme.Blue500
 import com.example.lulu.presentation.util.theme.Blue700
+import com.example.lulu.presentation.util.theme.primaryLight
+import com.example.lulu.presentation.util.theme.secondary
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -44,17 +47,13 @@ fun AddEditGarmentScreen(
 ){
     val nameState = viewModel.garmentName.value
     val descriptionState = viewModel.garmentDescription.value
-
     val scaffoldState = rememberScaffoldState()
-
     val garmentBackgroundAnimatable = remember {
         Animatable(
             Color(if(garmentColor != -1) garmentColor else viewModel.garmentColor.value)
         )
     }
-
     val scope = rememberCoroutineScope()
-
     LaunchedEffect(key1 = true) {
         viewModel.eventFlow.collectLatest { event ->
             when(event){
@@ -72,14 +71,8 @@ fun AddEditGarmentScreen(
             }
         }
     }
-    val bodyContent = remember { mutableStateOf("Body Content Here") }
-    val brushGeneral = Brush.horizontalGradient(
-        listOf(Color.Cyan, Color.LightGray, Color.Blue),
-        startX = 1.0f,
-        endX = 2.0f
-    )
     Scaffold(
-        scaffoldState = scaffoldState
+        scaffoldState = scaffoldState,
     ){
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -123,35 +116,84 @@ fun AddEditGarmentScreen(
                     )
                 }
             }
-            Spacer(modifier = Modifier.height(16.dp))
-            TransparentHintTextField(
-                text = nameState.text,
-                hint = nameState.hint,
-                onValueChange = {
-                    viewModel.onEvent(AddEditGarmentEvents.EnteredName(it))
-                },
-                onFocusChange = {
-                    viewModel.onEvent(AddEditGarmentEvents.ChangeNameFocus(it))
-                },
-                isHintVisible = nameState.isHintVisible,
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h1
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(
+                    onClick = {
+                            viewModel.onEvent(AddEditGarmentEvents.SaveGarment)
+                    }
+                ) {
+                    Icon(
+                        Icons.Default.Save,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .background(Color.Cyan)
+                            .size(50.dp),
+                        tint = Color.Yellow
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+            Divider(
+                modifier = Modifier.fillMaxWidth(),
+                color = Color.LightGray,
+                thickness = 1.dp,
+                startIndent = 0.dp
             )
-            Spacer(modifier = Modifier.height(16.dp))
-            TransparentHintTextField(
-                text = descriptionState.text,
-                hint = descriptionState.hint,
-                onValueChange = {
-                    viewModel.onEvent(AddEditGarmentEvents.EnteredDescription(it))
-                },
-                onFocusChange = {
-                    viewModel.onEvent(AddEditGarmentEvents.ChangeDescriptionFocus(it))
-                },
-                isHintVisible = descriptionState.isHintVisible,
-                textStyle = MaterialTheme.typography.body1,
+            Row(
                 modifier = Modifier
-                    .fillMaxHeight()
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                TransparentHintTextField(
+                    text = nameState.text,
+                    hint = nameState.hint,
+                    onValueChange = {
+                        viewModel.onEvent(AddEditGarmentEvents.EnteredName(it))
+                    },
+                    onFocusChange = {
+                        viewModel.onEvent(AddEditGarmentEvents.ChangeNameFocus(it))
+                    },
+                    isHintVisible = nameState.isHintVisible,
+                    singleLine = true,
+                    textStyle = MaterialTheme.typography.h2
+                )
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+            Divider(
+                modifier = Modifier.fillMaxWidth(),
+                color = Color.LightGray,
+                thickness = 1.dp,
+                startIndent = 0.dp
             )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                TransparentHintTextField(
+                    text = descriptionState.text,
+                    hint = descriptionState.hint,
+                    onValueChange = {
+                        viewModel.onEvent(AddEditGarmentEvents.EnteredDescription(it))
+                    },
+                    onFocusChange = {
+                        viewModel.onEvent(AddEditGarmentEvents.ChangeDescriptionFocus(it))
+                    },
+                    isHintVisible = descriptionState.isHintVisible,
+                    textStyle = MaterialTheme.typography.body2,
+                    modifier = Modifier
+                        .fillMaxHeight()
+                )
+            }
+
         }
     }
 

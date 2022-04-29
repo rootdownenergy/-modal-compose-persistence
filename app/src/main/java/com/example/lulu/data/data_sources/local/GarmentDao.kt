@@ -19,6 +19,6 @@ interface GarmentDao {
     suspend fun deleteGarment(id: Int)
 
     @Update
-    suspend fun updateGarment(garment: Garment)
+    suspend fun updateGarment(vararg garment: Garment)
 
 }

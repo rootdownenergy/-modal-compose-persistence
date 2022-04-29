@@ -9,4 +9,5 @@ sealed class AddEditGarmentEvents {
     data class ChangeDescriptionFocus(val focusState: FocusState): AddEditGarmentEvents()
     data class ChangeColor(val color: Int): AddEditGarmentEvents()
     object SaveGarment: AddEditGarmentEvents()
+    object UpdateGarment: AddEditGarmentEvents()
 }

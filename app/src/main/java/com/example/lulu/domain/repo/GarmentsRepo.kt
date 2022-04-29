@@ -12,4 +12,6 @@ interface GarmentsRepo {
     suspend fun insertGarment(data: Garment)
     // standard crud delete
     suspend fun deleteGarment(data: Garment)
+    // update
+    suspend fun updateGarment(data: Garment)
 }
