@@ -30,28 +30,23 @@ fun TopAppBarMain(
     viewModel: GarmentsListViewModel = hiltViewModel()
 ){
     Column(
-        modifier = Modifier.fillMaxWidth().background(secondaryDark).border(4.dp, secondary)
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(secondaryDark)
+            .border(4.dp, secondary)
     ) {
         Row(
-            modifier = Modifier.padding(10.dp),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
+            horizontalArrangement = Arrangement.End
         ) {
             IconButton(
-                modifier = Modifier.border(3.dp, secondaryLight).background(primaryDark).padding(10.dp).align(Alignment.Top),
-                onClick = {
-                    viewModel.onEvent(GarmentsEvents.ToggleOrderSection)
-                },
-            ){
-                Icon(
-                    modifier = Modifier.size(50.dp),
-                    imageVector = Icons.Default.Sort,
-                    contentDescription = "Sort",
-                    tint = primaryText,
-                )
-            }
-            IconButton(
-                modifier = Modifier.border(3.dp, secondaryLight).background(primaryDark).padding(10.dp).align(Alignment.Bottom),
+                modifier = Modifier
+                    .border(3.dp, secondaryLight)
+                    .background(primaryDark)
+                    .padding(10.dp)
+                ,
                 onClick = {
                     scope.launch {
                         state.show()

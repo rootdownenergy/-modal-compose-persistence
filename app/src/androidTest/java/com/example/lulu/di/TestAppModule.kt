@@ -19,14 +19,14 @@ object TestAppModule {
 
     @Provides
     @Singleton
-    fun provideGarmentRepo(db: AppDatabase): GarmentsRepo {
+    fun provideGarmentRepoTest(db: AppDatabase): GarmentsRepo {
         return GarmentRepoImpl(db.getGarmentDao())
     }
 
 
     @Provides
     @Singleton
-    fun provideGarmentRepo(app: Application): AppDatabase {
+    fun provideGarmentRepoDatabase(app: Application): AppDatabase {
         return Room.inMemoryDatabaseBuilder(
             app,
             AppDatabase::class.java,

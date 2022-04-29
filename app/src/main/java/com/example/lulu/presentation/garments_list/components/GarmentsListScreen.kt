@@ -48,53 +48,44 @@ fun GarmentsListScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                AnimatedVisibility(
-                    visible = stateViewModel.isOrderSectionVisible,
-                    enter = fadeIn() + slideInVertically(),
-                    exit = fadeOut() + slideOutVertically()
-                ) {
-                    OrderSection(
+                OrderSection(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp)
+                        .testTag(TestTags.ORDER_SECTION),
+                    garmentOrder = stateViewModel.garmentOrder,
+                    onOrderChange = {
+                        viewModel.onEvent(GarmentsEvents.Order(it))
+                    }
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            LazyColumn(modifier = Modifier.fillMaxSize()){
+                items(stateViewModel.garments) { garment ->
+                    GarmentItem(
+                        garment = garment,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 8.dp)
-                            .testTag(TestTags.ORDER_SECTION),
-                        garmentOrder = stateViewModel.garmentOrder,
-                        onOrderChange = {
-                            viewModel.onEvent(GarmentsEvents.Order(it))
+                            .clickable {
+                                scope.launch {
+                                    state.show()
+                                } },
+                        onDeleteClick = {
+                            viewModel.onEvent(GarmentsEvents.DeleteGarment(garment))
+                            scope.launch {
+                                val result = scaffoldState.snackbarHostState.showSnackbar(
+                                    message = "Garment Deleted",
+                                    actionLabel = "Undo"
+                                )
+                                if(result == SnackbarResult.ActionPerformed) {
+                                    viewModel.onEvent(GarmentsEvents.RestoreGarment)
+                                }
+                            }
                         }
                     )
                 }
-                Spacer(modifier = Modifier.height(16.dp))
             }
-
-                LazyColumn(modifier = Modifier.fillMaxSize()){
-                    items(stateViewModel.garments) { garment ->
-                        GarmentItem(
-                            garment = garment,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable {
-                                    scope.launch {
-                                        state.show()
-                                    }
-                                },
-                            onDeleteClick = {
-                                viewModel.onEvent(GarmentsEvents.DeleteGarment(garment))
-                                scope.launch {
-                                    val result = scaffoldState.snackbarHostState.showSnackbar(
-                                        message = "Garment Deleted",
-                                        actionLabel = "Undo"
-                                    )
-                                    if(result == SnackbarResult.ActionPerformed) {
-                                        viewModel.onEvent(GarmentsEvents.RestoreGarment)
-                                    }
-                                }
-                            }
-                        )
-                    }
-                }
         }
     }
-
 }
 

@@ -1,8 +1,10 @@
 package com.example.lulu.presentation.garments_list.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -20,37 +22,35 @@ fun OrderSection(
         modifier = modifier
     ) {
         Row(
-            modifier = modifier.fillMaxWidth()
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             DefaultFilterButton(
                 text = "Name",
                 selected = garmentOrder is GarmentOrder.Name,
-                onSelected = { onOrderChange(GarmentOrder.Name(garmentOrder.orderType))}
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            DefaultFilterButton(
-                text = "Date",
-                selected = garmentOrder is GarmentOrder.Date,
-                onSelected = { onOrderChange(GarmentOrder.Date(garmentOrder.orderType))}
-            )
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Row(
-            modifier = Modifier.fillMaxWidth()
-        ){
-            DefaultRadioButton(
-                text = "Ascending",
-                selected = garmentOrder.orderType is OrderType.Ascending,
                 onSelected = {
-                    onOrderChange(garmentOrder.copy(OrderType.Ascending))
+                    if(garmentOrder.orderType == OrderType.Ascending){
+                        onOrderChange(GarmentOrder.Name(garmentOrder.orderType))
+                        onOrderChange(garmentOrder.copy(OrderType.Descending))
+                    } else {
+                        onOrderChange(GarmentOrder.Name(garmentOrder.orderType))
+                        onOrderChange(garmentOrder.copy(OrderType.Ascending))
+                    }
                 }
             )
             Spacer(modifier = Modifier.width(8.dp))
-            DefaultRadioButton(
-                text = "Descending",
-                selected = garmentOrder.orderType is OrderType.Descending,
+            DefaultFilterButton(
+                text = "Creation Time",
+                selected = garmentOrder is GarmentOrder.Date,
                 onSelected = {
-                    onOrderChange(garmentOrder.copy(OrderType.Descending))
+                    if(garmentOrder.orderType == OrderType.Ascending){
+                        onOrderChange(GarmentOrder.Date(garmentOrder.orderType))
+                        onOrderChange(garmentOrder.copy(OrderType.Descending))
+                    } else {
+                        onOrderChange(GarmentOrder.Date(garmentOrder.orderType))
+                        onOrderChange(garmentOrder.copy(OrderType.Ascending))
+                    }
                 }
             )
         }

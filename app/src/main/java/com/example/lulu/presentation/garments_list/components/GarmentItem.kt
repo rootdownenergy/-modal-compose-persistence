@@ -34,12 +34,21 @@ fun GarmentItem(
 ){
     Box(
         modifier = modifier
+
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth().fillMaxHeight(), content = {
-                Card(elevation = 4.dp, modifier = Modifier.padding(all = 4.dp)) {
-                    Column(modifier = Modifier.padding(all = 4.dp)) {
+            modifier = Modifier.fillMaxWidth().fillMaxHeight(),
+            content = {
+                Card(
+                    elevation = 4.dp,
+                    modifier = Modifier.padding(all = 4.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(all = 4.dp)
+                    )
+                    {
+
                         Canvas(modifier = Modifier.fillMaxWidth()) {
                             val clipPath = Path().apply {
                                 lineTo(size.width - cutCornerSize.toPx(), 0f)
@@ -67,7 +76,7 @@ fun GarmentItem(
                         Column(
                             modifier = Modifier
                                 .fillMaxSize()
-                                .background(primaryDark)
+                                .background(Color(garment.color))
                                 .padding(4.dp)
                                 .padding(end = 10.dp)
                         ) {

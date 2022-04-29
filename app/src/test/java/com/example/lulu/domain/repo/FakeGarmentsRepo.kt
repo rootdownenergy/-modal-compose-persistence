@@ -24,7 +24,7 @@ class FakeGarmentsRepo : GarmentsRepo {
         return try {
             lsGarments[id]
         } catch (e: Exception){
-            Garment(name = "ERROR", description = "unknown error",timestamp = 101L, color = 2)
+            Garment(name = "ERROR", description = "unknown error",timestamp = System.currentTimeMillis(), color = 2)
         }
     }
 
@@ -43,5 +43,9 @@ class FakeGarmentsRepo : GarmentsRepo {
         }catch (e: Exception){
             Log.w("$$$", "An unknown error occurred")
         }
+    }
+
+    override suspend fun updateGarment(data: Garment) {
+        TODO("Not yet implemented")
     }
 }

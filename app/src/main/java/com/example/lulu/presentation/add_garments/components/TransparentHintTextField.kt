@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -73,12 +74,10 @@ fun TransparentHintTextField(
                 .onFocusEvent { focusState ->
                     if(focusState.isFocused) {
                         scope.launch {
-                            Log.w("TAG", "TEST")
                             bringIntoViewRequester.bringIntoView()
                         }
                     }
-                }
-            ,
+                },
             value = text,
             onValueChange = onValueChange,
             singleLine = singleLine,

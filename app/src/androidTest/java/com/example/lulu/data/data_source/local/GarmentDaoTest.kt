@@ -46,8 +46,9 @@ class GarmentDaoTest {
         ).allowMainThreadQueries().build()
         dao = database.getGarmentDao()
     }
+
     @Test
-    fun insertGarnment() = runTest{
+    fun insertGarnment() = runTest {
         val daoObj = Garment(garnmentId = 1, name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis(), color = 2)
         val daoObj2 = Garment(garnmentId = 2, name = "HTW2", description = "HTWHTW22221111HTWHTW2", timestamp = System.currentTimeMillis(), color = 2)
         dao.insertGarment(daoObj)

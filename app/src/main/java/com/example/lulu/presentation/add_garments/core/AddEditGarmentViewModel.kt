@@ -96,11 +96,11 @@ class AddEditGarmentViewModel @Inject constructor(
     fun clearinputs(){
         _garmentName.value = garmentName.value.copy(
             text = "",
-            hint = "Enter garment name..."
+            isHintVisible = true
         )
         _garmentDescription.value = garmentDescription.value.copy(
             text = "",
-            hint = "Enter garment description..."
+            isHintVisible = true
         )
     }
 

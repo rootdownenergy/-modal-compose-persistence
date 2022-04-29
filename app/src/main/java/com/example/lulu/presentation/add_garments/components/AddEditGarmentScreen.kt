@@ -68,6 +68,7 @@ fun AddEditGarmentScreen(
         scaffoldState = scaffoldState,
     ){
         Column(
+            verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
@@ -157,19 +158,12 @@ fun AddEditGarmentScreen(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IconButton(
+                Button(
                     onClick = {
                         viewModel.onEvent(AddEditGarmentEvents.SaveGarment)
                     }
                 ) {
-                    Icon(
-                        Icons.Default.Save,
-                        contentDescription = null,
-                        modifier = Modifier
-                            .background(Color.Cyan)
-                            .size(50.dp),
-                        tint = Color.Yellow
-                    )
+                    Text(text = "Save")
                 }
             }
         }
