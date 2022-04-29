@@ -48,8 +48,8 @@ class GarmentDaoTest {
     }
     @Test
     fun insertGarnment() = runTest{
-        val daoObj = Garment(garnmentId = 1, name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis(), color = 2, ii = "cloud group")
-        val daoObj2 = Garment(garnmentId = 2, name = "HTW2", description = "HTWHTW22221111HTWHTW2", timestamp = System.currentTimeMillis(), color = 2, ii = "1111 group")
+        val daoObj = Garment(garnmentId = 1, name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis(), color = 2)
+        val daoObj2 = Garment(garnmentId = 2, name = "HTW2", description = "HTWHTW22221111HTWHTW2", timestamp = System.currentTimeMillis(), color = 2)
         dao.insertGarment(daoObj)
         dao.insertGarment(daoObj2)
         val result = dao.getGarment().asLiveData().getOrAwaitValueTest()
@@ -58,8 +58,8 @@ class GarmentDaoTest {
     }
     @Test
     fun deleteAGarment() = runTest {
-        val daoObj = Garment(name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis(), color = 2, ii = "cloud group")
-        val daoObj2 = Garment(name = "HTW2", description = "HTWHTW22221111HTWHTW2", timestamp = System.currentTimeMillis(), color = 2, ii = "1111 group")
+        val daoObj = Garment(name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis(), color = 2)
+        val daoObj2 = Garment(name = "HTW2", description = "HTWHTW22221111HTWHTW2", timestamp = System.currentTimeMillis(), color = 2)
         dao.insertGarment(daoObj)
         dao.insertGarment(daoObj2)
         dao.deleteGarment(1)
@@ -68,8 +68,8 @@ class GarmentDaoTest {
     }
     @Test
     fun getGarmentById() = runTest {
-        val daoObj = Garment(garnmentId = 1, name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis(), color = 2, ii = "cloud group")
-        val daoObj2 = Garment(garnmentId = 2, name = "HTW2", description = "HTWHTW22221111HTWHTW2", timestamp = System.currentTimeMillis(), color = 2, ii = "1111 group")
+        val daoObj = Garment(garnmentId = 1, name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis(), color = 2)
+        val daoObj2 = Garment(garnmentId = 2, name = "HTW2", description = "HTWHTW22221111HTWHTW2", timestamp = System.currentTimeMillis(), color = 2)
         dao.insertGarment(daoObj)
         dao.insertGarment(daoObj2)
         val result = dao.getGarmentById(daoObj.garnmentId)

@@ -8,10 +8,10 @@ import java.lang.Exception
 
 class FakeGarmentsRepo : GarmentsRepo {
     val lsGarments = listOf(
-        Garment(garnmentId = 1, name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis()+1, color = 2, ii = "cloud group"),
-        Garment(garnmentId = 2, name = "HTW2", description = "HTWHTWHTWHTW2", timestamp = System.currentTimeMillis()+2, color = 33, ii = "cloud group"),
-        Garment(garnmentId = 3, name = "HTW3", description = "HTWHTWHTWHTW3", timestamp = System.currentTimeMillis()+3, color = 1, ii = "cloud group"),
-        Garment(garnmentId = 4, name = "HTW4", description = "HTWHTWHTWHTW4", timestamp = System.currentTimeMillis()+4, color = 244, ii = "cloud group"),
+        Garment(garnmentId = 1, name = "HTW", description = "HTWHTWHTWHTW", timestamp = System.currentTimeMillis()+1, color = 2),
+        Garment(garnmentId = 2, name = "HTW2", description = "HTWHTWHTWHTW2", timestamp = System.currentTimeMillis()+2, color = 33),
+        Garment(garnmentId = 3, name = "HTW3", description = "HTWHTWHTWHTW3", timestamp = System.currentTimeMillis()+3, color = 1),
+        Garment(garnmentId = 4, name = "HTW4", description = "HTWHTWHTWHTW4", timestamp = System.currentTimeMillis()+4, color = 244),
     )
     val modLs = lsGarments.toMutableList()
     override fun getGarments(): Flow<List<Garment>> {
@@ -24,7 +24,7 @@ class FakeGarmentsRepo : GarmentsRepo {
         return try {
             lsGarments[id]
         } catch (e: Exception){
-            Garment(name = "ERROR", description = "unknown error",timestamp = 101L, color = 2, ii = "error group")
+            Garment(name = "ERROR", description = "unknown error",timestamp = 101L, color = 2)
         }
     }
 

@@ -2,9 +2,7 @@ package com.example.lulu.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.lulu.presentation.util.theme.Blue200
-import com.example.lulu.presentation.util.theme.Blue500
-import com.example.lulu.presentation.util.theme.Blue700
+import com.example.lulu.presentation.util.theme.*
 
 @Entity(tableName = "garment_main")
 data class Garment(
@@ -14,10 +12,9 @@ data class Garment(
     val description: String,
     val timestamp: Long,
     val color: Int,
-    val ii: String,
 ){
     companion object {
-        val garmentColor = listOf(Blue200, Blue500, Blue700)
+        val garmentColor = listOf(Blue200, Blue500, Blue700, Yellow200, Yellow500, Yellow700)
     }
 }
 
